@@ -2,8 +2,6 @@
 Patient
 -
   ID int PK
-  firstname varchar(64)
-  surname varchar(64)
   gender varchar(6)
   age int NOT NULL
 
@@ -19,41 +17,3 @@ Test
   hbA1c_level decimal
   blood_glucose int
   bmi int
-
-// version 2
-Person
--
-  ID int PK
-  firstname varchar(64)
-  surname varchar(64)
-  telephone varchar(20)
-  birthdate timestamp
-  gender varchar(6)
-  age int NOT NULL
-  creation_date timestamp
-
-Doctor
--
-  personID int PK FK > Person.ID
-  job_title varchar(128)
-  organization varchar(128)
-
-Patient
--
-  personID int PK FK > Person.ID
-  heart_disease tinyint
-  hypertension tinyint
-  diabetes tinyint
-  smoking_history varchar(256)
-
-Test
--
-  ID int PK
-  patientID int FK > Patient.personID
-  doctorID int FK > Doctor.personID
-  hbA1c_level decimal
-  blood_glucose int
-  bmi int
-  start_date timestamp NOT NULL
-  end_date timestamp
-

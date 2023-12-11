@@ -1,19 +1,22 @@
-// version 1
-Patient
+SmokingHistory
 -
-  ID int PK
-  gender varchar(6)
-  age int NOT NULL
+ID int PK
+info varchar(64)
 
-  heart_disease tinyint
-  hypertension tinyint
-  diabetes tinyint
-  smoking_history varchar(256)
-
-Test
+Gender
 -
-  ID int PK
-  patientID int FK > Patient.ID
-  hbA1c_level decimal
-  blood_glucose int
-  bmi int
+ID int PK
+name varchar(16)
+
+BloodAnalysis
+-
+ID int PK
+genderID int FK > Gender.ID
+skID int FK > SmokingHistory.ID
+age int
+bmi decimal
+hbA1c_level decimal
+blood_glucose int
+heart_disease tinyint
+hypertension tinyint
+diabetes tinyint

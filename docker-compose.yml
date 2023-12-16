@@ -1,0 +1,40 @@
+version: '3.7'
+
+services:
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    restart: always
+    ports:
+     - 8080:8080
+    environment:
+      - PMA_HOST=mysql
+      - PMA_PORT=3306
+    depends_on:
+      - mysql
+
+  mysql:
+    image: mysql:8.0
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: notSecurePassword
+      MYSQL_DATABASE: diabet_predict
+      MYSQL_USER: sql_user
+      MYSQL_PASSWORD: mysql411
+    volumes:
+      - ./sql:/docker-entrypoint-initdb.d
+
+  miniconda3:
+    image: continuumio/miniconda3
+    restart: always
+    environment:
+      - PATH=/opt/conda/bin:$PATH
+
+  scipy-notebook:
+    image: jupyter/scipy-notebook
+    restart: always
+    ports:
+      - 8888:8888
+    volumes:
+      - ./notebooks:/home/jovyan/work
+    depends_on:
+      - miniconda3

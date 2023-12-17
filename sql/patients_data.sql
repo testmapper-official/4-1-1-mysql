@@ -19,10 +19,10 @@ CREATE TABLE BloodAnalysis (
   skID INT,
   FOREIGN KEY (skID) REFERENCES SmokingHistory(ID),
   age INT,
-  bmi DECIMAL(10, 2)
+  bmi DECIMAL(10, 2),
   hbA1c_level DECIMAL(10, 2),
   blood_glucose INT,
   heart_disease TINYINT,
   hypertension TINYINT,
-  diabetes TINYINT,
+  diabetes TINYINT
 );

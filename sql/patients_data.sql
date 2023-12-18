@@ -1,6 +1,6 @@
-CREATE DATABASE IF NOT EXISTS 'diabet_predict'
+CREATE DATABASE IF NOT EXISTS diabet_predict;
 
-USE `diabet_predict`;
+USE diabet_predict;
 
 CREATE TABLE SmokingHistory (
   ID INT PRIMARY KEY,

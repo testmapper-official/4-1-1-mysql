@@ -30,7 +30,7 @@ services:
       - PATH=/opt/conda/bin:$PATH
 
   scipy-notebook:
-    image: jupyter/scipy-notebook
+    build: .
     restart: always
     ports:
       - 8888:8888

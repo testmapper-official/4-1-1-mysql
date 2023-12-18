@@ -19,7 +19,7 @@ LOAD DATA INFILE '\diabetes_prediction_dataset.csv'
     IGNORE 1 LINES
     (gender, age, hypertension, heart_disease, smoking_history, bmi, HbA1c_level, blood_glucose_level, diabetes)
 
-ALTER TABLE diabet_predict.dataset
+ALTER TABLE diabet_predict.dataset2
 ADD COLUMN ID INT AUTO_INCREMENT PRIMARY KEY FIRST;
 
 INSERT INTO diabet_predict.gender(ID, gender)

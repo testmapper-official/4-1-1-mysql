@@ -1,6 +1,6 @@
 USE diabet_predict;
-
-CREATE TABLE dataset2 (
+DROP TABLE IF EXISTS dataset2;
+CREATE TABLE IF NOT EXISTS dataset2 (
   gender VARCHAR(16),
   age INT,
   hypertension TINYINT,
@@ -22,14 +22,14 @@ LOAD DATA INFILE '\diabetes_prediction_dataset.csv'
 ALTER TABLE diabet_predict.dataset2
 ADD COLUMN ID INT AUTO_INCREMENT PRIMARY KEY FIRST;
 
-INSERT INTO diabet_predict.gender(ID, gender)
+INSERT INTO diabet_predict.gender(ID, name)
 SELECT ID, gender
 FROM dataset2;
 
-INSERT INTO diabet_predict.smokinghistory(ID, smk_info)
+INSERT INTO diabet_predict.smokinghistory(ID, info)
 SELECT ID, smoking_history
 FROM dataset2;
 
-INSERT INTO diabet_predict.bloodanalysis(ID, genderID, smID, age, bmi, HbA1c_level, blood_glucose, heart_disease, hypertension, diabetes)
+INSERT INTO diabet_predict.bloodanalysis(ID, genderID, skID, age, bmi, HbA1c_level, blood_glucose, heart_disease, hypertension, diabetes)
 SELECT ID, ID, ID, age, bmi, HbA1c_level, blood_glucose_level, heart_disease, hypertension, diabetes
 FROM dataset2;

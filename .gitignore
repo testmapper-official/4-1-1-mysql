@@ -1,1 +1,5 @@
 .idea
+.vscode
+.venv
+notebooks/.ipynb_checkpoints
+sql/drop_db.sql

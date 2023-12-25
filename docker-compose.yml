@@ -18,10 +18,11 @@ services:
     environment:
       MYSQL_ROOT_PASSWORD: notSecurePassword
       MYSQL_DATABASE: diabet_predict
-      MYSQL_USER: sql_user
+      MYSQL_USER: sql_user  
       MYSQL_PASSWORD: mysql411
     volumes:
       - ./sql:/docker-entrypoint-initdb.d
+    command: --init-file /docker-entrypoint-initdb.d/patients_data.sql
 
   miniconda3:
     image: continuumio/miniconda3

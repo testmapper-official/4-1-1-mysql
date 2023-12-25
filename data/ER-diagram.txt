@@ -1,0 +1,22 @@
+SmokingHistory
+-
+ID int PK
+info varchar(64)
+
+Gender
+-
+ID int PK
+name varchar(16)
+
+BloodAnalysis
+-
+ID int PK
+genderID int FK > Gender.ID
+skID int FK > SmokingHistory.ID
+age int
+bmi decimal
+hbA1c_level decimal
+blood_glucose int
+heart_disease tinyint
+hypertension tinyint
+diabetes tinyint

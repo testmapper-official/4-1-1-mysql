@@ -56,7 +56,7 @@ UPDATE diabet_predict.smokinghistory
 UPDATE diabet_predict.smokinghistory
     SET skID = 5
     WHERE info = 'former';  
-USE diabet_predict;
+
 INSERT INTO diabet_predict.bloodanalysis
 ( SELECT ds.ID, gend.genderID, sh.skID, ds.age, ds.bmi, ds.HbA1c_level, ds.blood_glucose_level, ds.heart_disease, ds.hypertension, ds.diabetes
 FROM dataset2 as ds, smokingHistory as sh, Gender as gend
